@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WPS 文档预览</title>
-    <script type="module" crossorigin src="/assets/index-mx9EZ6WA.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CjTtxGUb.css">
+    <script type="module" crossorigin src="/assets/index-DE3NxQJf.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Dm7chwLo.css">
   </head>
   <body>
-    <main id="appShell" class="app-shell" data-view-mode="flow" data-sidebar-open="true">
+    <main id="appShell" class="app-shell" data-view-mode="flow" data-sidebar-open="true" data-page-navigation="hidden">
       <header class="app-header">
         <div class="brand" aria-label="WPS 文档预览">
           <div class="brand-mark" aria-hidden="true">W</div>
@@ -29,8 +29,8 @@
       </header>
 
       <nav class="viewer-toolbar" aria-label="文档视图工具栏">
-        <button id="sidebarToggle" class="icon-tool" type="button" title="显示或隐藏侧栏" aria-label="显示或隐藏侧栏" aria-pressed="true">☰</button>
-        <span class="toolbar-separator" aria-hidden="true"></span>
+        <button id="sidebarToggle" class="icon-tool" type="button" title="显示或隐藏侧栏" aria-label="显示或隐藏侧栏" aria-pressed="true" hidden>☰</button>
+        <span class="toolbar-separator" data-sidebar-separator aria-hidden="true" hidden></span>
         <div class="segmented-control" role="group" aria-label="预览视图">
           <button id="flowViewButton" type="button" data-view="flow" aria-pressed="true">流式</button>
           <button id="pagedViewButton" type="button" data-view="paged" aria-pressed="false">分页</button>
@@ -43,7 +43,7 @@
         </div>
         <button id="fitWidthButton" class="toolbar-command" type="button" title="按可用宽度缩放">适合宽度</button>
         <div class="toolbar-spacer"></div>
-        <div class="page-navigation" role="group" aria-label="页面导航">
+        <div class="page-navigation" role="group" aria-label="页面导航" hidden>
           <button id="previousPageButton" class="icon-tool" type="button" title="上一页" aria-label="上一页">‹</button>
           <span id="pageIndicator">1 / 1</span>
           <button id="nextPageButton" class="icon-tool" type="button" title="下一页" aria-label="下一页">›</button>
@@ -51,7 +51,7 @@
       </nav>
 
       <div class="viewer-body">
-        <aside class="document-panel" aria-label="文档导航">
+        <aside class="document-panel" aria-label="文档导航" hidden>
           <div class="panel-tabs" role="tablist" aria-label="侧栏视图">
             <button id="pagesTab" type="button" role="tab" aria-selected="true" aria-controls="pagesPanel">页面</button>
             <button id="infoTab" type="button" role="tab" aria-selected="false" aria-controls="infoPanel">信息</button>
@@ -93,8 +93,8 @@
       <footer class="statusbar">
         <span id="statusMessage">就绪</span>
         <span class="statusbar-spacer"></span>
-        <span id="pageStatus">第 1 页，共 1 页</span>
-        <span id="paperStatus">纸张 -</span>
+        <span id="pageStatus" hidden>第 1 页，共 1 页</span>
+        <span id="paperStatus" hidden>纸张 -</span>
         <span id="viewStatus">流式视图</span>
       </footer>
     </main>
