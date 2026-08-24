@@ -14,11 +14,11 @@ authorization module, the exact-origin evaluation license, and integrity
 checksums. It intentionally excludes parser and layout source, signing
 material, private test documents, and customer licenses.
 
-The included runtime is permanently restricted to
+The bundled evaluation license is permanently restricted to
 `https://wps.file-viewer.app`. Copying these files to another Origin does not
-grant a deployment right and will not produce an authorized runtime. A
-self-hosted production deployment requires a commercial license and matched
-runtime delivery.
+grant a deployment right and will not authorize the viewer. A self-hosted
+production deployment requires a commercial agreement and a signed license
+covering the production Origin.
 
 ## Verification
 
