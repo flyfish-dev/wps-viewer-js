@@ -3,17 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WPS 文档预览</title>
-    <script type="module" crossorigin src="/assets/index-DE3NxQJf.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Dm7chwLo.css">
+    <title>Flyfish WPS Viewer | WPS、ET、DPS 纯前端文档预览</title>
+    <meta name="description" content="在浏览器中直接预览 WPS 文字、ET 表格与 DPS 演示文件，支持纯前端解析、自托管部署和商业授权。" />
+    <link rel="canonical" href="https://wps.file-viewer.app/" />
+    <script type="module" crossorigin src="/assets/index-BSgKCEjO.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CXOLci6R.css">
   </head>
   <body>
     <main id="appShell" class="app-shell" data-view-mode="flow" data-sidebar-open="true" data-page-navigation="hidden">
       <header class="app-header">
-        <div class="brand" aria-label="WPS 文档预览">
+        <a class="brand" href="#productOverview" aria-label="查看 Flyfish WPS Viewer 产品信息">
           <div class="brand-mark" aria-hidden="true">W</div>
           <strong>WPS 文档预览</strong>
-        </div>
+        </a>
         <label class="open-file-button">
           <input id="fileInput" type="file" accept=".wps,.wpt,.et,.ett,.dps,.dpt" />
           <span>打开文件</span>
@@ -22,6 +24,7 @@
           <h1 id="fileTitle">WPS 预览</h1>
           <p id="fileMeta">等待文件</p>
         </div>
+        <a class="app-product-link" href="#productOverview">产品</a>
         <div id="licenseValue" class="license-state" title="正在验证 Office Preview 授权">
           <span class="status-dot" aria-hidden="true"></span>
           <span>验证中</span>
@@ -98,5 +101,90 @@
         <span id="viewStatus">流式视图</span>
       </footer>
     </main>
+
+    <div class="product-home">
+      <a class="product-ribbon" href="#productOverview">
+        <span><strong>Flyfish WPS Viewer</strong> · WPS / ET / DPS 纯前端预览</span>
+        <span>产品与接入 ↓</span>
+      </a>
+
+      <section id="productOverview" class="product-section product-intro" aria-labelledby="productTitle">
+        <div class="product-inner product-intro-layout">
+          <div>
+            <p class="product-kicker">核心闭源 · 开放接入 · 私有化交付</p>
+            <h2 id="productTitle">在浏览器里直接打开 WPS 办公文档。</h2>
+            <p class="product-lead">文件在当前浏览器内读取和解析，无需上传到第三方格式转换服务。适用于 OA、档案、知识库、文件平台和企业业务系统。</p>
+            <div class="product-actions">
+              <a class="product-button product-button-primary" href="#appShell">立即体验</a>
+              <a class="product-button" href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">查看商业授权 ↗</a>
+            </div>
+          </div>
+          <dl class="format-matrix" aria-label="支持的 WPS 文件系列">
+            <div><dt>WPS / WPT</dt><dd>文字</dd></div>
+            <div><dt>ET / ETT</dt><dd>表格</dd></div>
+            <div><dt>DPS / DPT</dt><dd>演示</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="product-section product-capabilities" aria-labelledby="capabilityTitle">
+        <div class="product-inner">
+          <div class="product-heading">
+            <p class="product-kicker">真实文档工作区</p>
+            <h2 id="capabilityTitle">一种接入方式，三类专业视图。</h2>
+          </div>
+          <div class="capability-list">
+            <article><span>01</span><h3>文字版式</h3><p>保留纸张尺寸、页边距和明确分页边界，支持流式阅读与分页预览。</p></article>
+            <article><span>02</span><h3>工作表视图</h3><p>普通视图使用工作表标签和滚动区域，打印分页时才显示页面导航。</p></article>
+            <article><span>03</span><h3>幻灯片舞台</h3><p>居中展示演示页面，缩略图与页面状态跟随当前幻灯片。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="integration" class="product-section integration-band" aria-labelledby="integrationTitle">
+        <div class="product-inner integration-layout">
+          <div class="integration-copy">
+            <p class="product-kicker">低耦合接入</p>
+            <h2 id="integrationTitle">保留现有权限、文件系统和审计链路。</h2>
+            <p>业务系统只需提供同源文件地址和文件名。登录、权限、分享、下载与非 WPS 文件预览无需迁移。</p>
+            <div class="integration-links">
+              <a href="https://github.com/flyfish-dev/wps-viewer-integration" target="_blank" rel="noreferrer">接入 SDK ↗</a>
+              <a href="https://github.com/flyfish-dev/wps-viewer-js/releases" target="_blank" rel="noreferrer">评估产物 ↗</a>
+            </div>
+          </div>
+          <div class="code-window" aria-label="WPS Viewer 接入示例">
+            <div class="code-window-bar"><span>viewer.html</span><span>HTML</span></div>
+            <pre><code>&lt;flyfish-wps-viewer
+  viewer-url="https://wps.file-viewer.app/viewer"
+  src="/api/files/42/download"
+  name="quarterly-report.et"&gt;
+&lt;/flyfish-wps-viewer&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="licensing" class="product-section licensing-section" aria-labelledby="licensingTitle">
+        <div class="product-inner">
+          <div class="product-heading licensing-heading">
+            <p class="product-kicker">清晰的商业边界</p>
+            <h2 id="licensingTitle">从真实文件评估，到自托管生产部署。</h2>
+            <p>开放 Web Component、TypeScript API 和框架示例；格式解析、版式引擎、授权校验与私有语料通过受控商业运行时交付。</p>
+          </div>
+          <div class="license-matrix" role="table" aria-label="WPS Viewer 授权版本">
+            <div class="license-column" role="row"><div><strong>评估版</strong><span>免费</span></div><p>在线 Demo、公开接入 SDK、受限域名构建产物。</p><a href="#appShell">打开 Demo</a></div>
+            <div class="license-column license-column-featured" role="row"><div><strong>商业版</strong><span>¥999</span></div><p>单一生产 Origin、自托管运行时、签名许可证与首年维护。</p><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">购买商业授权 ↗</a></div>
+            <div class="license-column" role="row"><div><strong>企业版</strong><span>¥2,999</span></div><p>最多五个授权部署、企业内网交付与优先兼容支持。</p><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">查看企业授权 ↗</a></div>
+          </div>
+          <p class="scope-note">兼容性以购买时支持矩阵、交付版本和客户样例验收为准。部分私有、加密或历史二进制变体可能需要专项适配。</p>
+        </div>
+      </section>
+
+      <footer class="product-footer">
+        <div class="product-inner product-footer-layout">
+          <div><strong>Flyfish WPS Viewer</strong><p>面向 WPS、ET、DPS 的纯前端文档预览组件。</p></div>
+          <nav aria-label="产品资源"><a href="#appShell">Demo</a><a href="https://github.com/flyfish-dev/wps-viewer-integration" target="_blank" rel="noreferrer">SDK</a><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">飞鱼小铺</a></nav>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
