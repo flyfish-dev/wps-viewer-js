@@ -3,159 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
     <title>Flyfish WPS Viewer | WPS、ET、DPS 纯前端文档预览</title>
-    <meta name="description" content="在浏览器中直接预览 WPS 文字、ET 表格与 DPS 演示文件，支持纯前端解析、自托管部署和商业授权。" />
+    <meta name="description" content="面向企业文件系统的 WPS、ET、DPS 纯前端文档预览组件，支持自托管部署、开放接入与商业授权。" />
     <link rel="canonical" href="https://wps.file-viewer.app/" />
-    <script type="module" crossorigin src="/assets/index-BSgKCEjO.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CXOLci6R.css">
+    <script type="module" crossorigin src="/assets/home-DVxCkYYa.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="stylesheet" crossorigin href="/assets/home-l05fAWZT.css">
   </head>
   <body>
-    <main id="appShell" class="app-shell" data-view-mode="flow" data-sidebar-open="true" data-page-navigation="hidden">
-      <header class="app-header">
-        <a class="brand" href="#productOverview" aria-label="查看 Flyfish WPS Viewer 产品信息">
-          <div class="brand-mark" aria-hidden="true">W</div>
-          <strong>WPS 文档预览</strong>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-brand" href="/" aria-label="Flyfish WPS Viewer 首页">
+          <span class="site-brand-mark" aria-hidden="true">W</span>
+          <span>Flyfish WPS Viewer</span>
         </a>
-        <label class="open-file-button">
-          <input id="fileInput" type="file" accept=".wps,.wpt,.et,.ett,.dps,.dpt" />
-          <span>打开文件</span>
-        </label>
-        <div class="document-identity">
-          <h1 id="fileTitle">WPS 预览</h1>
-          <p id="fileMeta">等待文件</p>
-        </div>
-        <a class="app-product-link" href="#productOverview">产品</a>
-        <div id="licenseValue" class="license-state" title="正在验证 Office Preview 授权">
-          <span class="status-dot" aria-hidden="true"></span>
-          <span>验证中</span>
-        </div>
-      </header>
-
-      <nav class="viewer-toolbar" aria-label="文档视图工具栏">
-        <button id="sidebarToggle" class="icon-tool" type="button" title="显示或隐藏侧栏" aria-label="显示或隐藏侧栏" aria-pressed="true" hidden>☰</button>
-        <span class="toolbar-separator" data-sidebar-separator aria-hidden="true" hidden></span>
-        <div class="segmented-control" role="group" aria-label="预览视图">
-          <button id="flowViewButton" type="button" data-view="flow" aria-pressed="true">流式</button>
-          <button id="pagedViewButton" type="button" data-view="paged" aria-pressed="false">分页</button>
-        </div>
-        <span class="toolbar-separator" aria-hidden="true"></span>
-        <div class="zoom-control" role="group" aria-label="缩放">
-          <button id="zoomOutButton" class="icon-tool" type="button" title="缩小" aria-label="缩小">−</button>
-          <output id="zoomValue" aria-live="polite">100%</output>
-          <button id="zoomInButton" class="icon-tool" type="button" title="放大" aria-label="放大">＋</button>
-        </div>
-        <button id="fitWidthButton" class="toolbar-command" type="button" title="按可用宽度缩放">适合宽度</button>
-        <div class="toolbar-spacer"></div>
-        <div class="page-navigation" role="group" aria-label="页面导航" hidden>
-          <button id="previousPageButton" class="icon-tool" type="button" title="上一页" aria-label="上一页">‹</button>
-          <span id="pageIndicator">1 / 1</span>
-          <button id="nextPageButton" class="icon-tool" type="button" title="下一页" aria-label="下一页">›</button>
-        </div>
-      </nav>
-
-      <div class="viewer-body">
-        <aside class="document-panel" aria-label="文档导航" hidden>
-          <div class="panel-tabs" role="tablist" aria-label="侧栏视图">
-            <button id="pagesTab" type="button" role="tab" aria-selected="true" aria-controls="pagesPanel">页面</button>
-            <button id="infoTab" type="button" role="tab" aria-selected="false" aria-controls="infoPanel">信息</button>
-          </div>
-          <section id="pagesPanel" class="panel-content pages-panel" role="tabpanel" aria-labelledby="pagesTab">
-            <ol id="pageList" class="page-list" aria-label="页面列表"></ol>
-          </section>
-          <section id="infoPanel" class="panel-content info-panel" role="tabpanel" aria-labelledby="infoTab" hidden>
-            <label class="field-label" for="sampleSelect">测试样例</label>
-            <select id="sampleSelect">
-              <option value="" disabled>选择样例</option>
-              <option value="legacy">WPS 2001 文档</option>
-              <option value="zip">WPS ZIP 文档</option>
-              <option value="et">ET 表格</option>
-              <option value="dps">DPS 演示</option>
-              <option value="uof">UOF 文档</option>
-              <option value="rtf">RTF 文档</option>
-              <option value="html">HTML 文档</option>
-              <option value="mhtml">MHTML 文档</option>
-            </select>
-            <dl class="facts">
-              <div><dt>容器</dt><dd id="containerValue">-</dd></div>
-              <div><dt>引擎</dt><dd id="engineValue">-</dd></div>
-              <div><dt>保真</dt><dd id="fidelityValue">-</dd></div>
-              <div><dt>纸张</dt><dd id="pageSizeValue">-</dd></div>
-              <div><dt>提示</dt><dd id="warningValue">0</dd></div>
-            </dl>
-          </section>
-        </aside>
-
-        <section class="document-stage" aria-label="文档预览区">
-          <div id="horizontalRuler" class="horizontal-ruler" aria-hidden="true"></div>
-          <div id="workspaceScroll" class="workspace-scroll">
-            <section id="preview" class="preview" aria-live="polite"></section>
-          </div>
-        </section>
+        <nav class="site-nav" aria-label="产品导航">
+          <a href="#formats">格式</a>
+          <a href="#capabilities">能力</a>
+          <a href="#integration">接入</a>
+          <a href="#licensing">授权</a>
+        </nav>
+        <a class="header-demo-link" href="/demo">打开 Demo</a>
       </div>
+    </header>
 
-      <footer class="statusbar">
-        <span id="statusMessage">就绪</span>
-        <span class="statusbar-spacer"></span>
-        <span id="pageStatus" hidden>第 1 页，共 1 页</span>
-        <span id="paperStatus" hidden>纸张 -</span>
-        <span id="viewStatus">流式视图</span>
-      </footer>
-    </main>
-
-    <div class="product-home">
-      <a class="product-ribbon" href="#productOverview">
-        <span><strong>Flyfish WPS Viewer</strong> · WPS / ET / DPS 纯前端预览</span>
-        <span>产品与接入 ↓</span>
-      </a>
-
-      <section id="productOverview" class="product-section product-intro" aria-labelledby="productTitle">
-        <div class="product-inner product-intro-layout">
-          <div>
-            <p class="product-kicker">核心闭源 · 开放接入 · 私有化交付</p>
-            <h2 id="productTitle">在浏览器里直接打开 WPS 办公文档。</h2>
-            <p class="product-lead">文件在当前浏览器内读取和解析，无需上传到第三方格式转换服务。适用于 OA、档案、知识库、文件平台和企业业务系统。</p>
-            <div class="product-actions">
-              <a class="product-button product-button-primary" href="#appShell">立即体验</a>
-              <a class="product-button" href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">查看商业授权 ↗</a>
+    <main>
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">WPS OFFICE PREVIEW</p>
+            <h1 id="heroTitle">Flyfish WPS Viewer</h1>
+            <p class="hero-lead">让 WPS 文字、ET 表格与 DPS 演示文件直接在浏览器中打开。保留现有权限、文件存储和业务流程，文件无需上传到第三方转换服务。</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="/demo">使用真实文件体验</a>
+              <a class="button button-secondary" href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">商业授权</a>
             </div>
+            <dl class="hero-facts" aria-label="产品特性">
+              <div><dt>纯前端</dt><dd>浏览器本地解析</dd></div>
+              <div><dt>可自托管</dt><dd>接入现有系统</dd></div>
+              <div><dt>开放组件</dt><dd>Web Component 与 API</dd></div>
+            </dl>
           </div>
-          <dl class="format-matrix" aria-label="支持的 WPS 文件系列">
-            <div><dt>WPS / WPT</dt><dd>文字</dd></div>
-            <div><dt>ET / ETT</dt><dd>表格</dd></div>
-            <div><dt>DPS / DPT</dt><dd>演示</dd></div>
-          </dl>
+
+          <div class="demo-embed" data-demo-embed>
+            <div class="demo-embed-bar">
+              <div class="demo-embed-title">
+                <span class="live-indicator" aria-hidden="true"></span>
+                <strong>在线预览工作区</strong>
+                <span>独立 Demo</span>
+              </div>
+              <a href="/demo" aria-label="在完整页面打开 Demo">完整页面打开</a>
+            </div>
+            <iframe src="/demo" title="Flyfish WPS Viewer 在线 Demo" loading="eager"></iframe>
+          </div>
         </div>
       </section>
 
-      <section class="product-section product-capabilities" aria-labelledby="capabilityTitle">
-        <div class="product-inner">
-          <div class="product-heading">
-            <p class="product-kicker">真实文档工作区</p>
-            <h2 id="capabilityTitle">一种接入方式，三类专业视图。</h2>
+      <section id="formats" class="section formats-section" aria-labelledby="formatsTitle">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">FORMAT ROUTING</p>
+            <h2 id="formatsTitle">一个入口，识别 WPS 家族的多种容器。</h2>
+            <p>扩展名不是解析依据。运行时会先检测 ZIP、CFB、WPS 2001、UOF、RTF、HTML 等真实容器，再选择对应渲染链路。</p>
           </div>
-          <div class="capability-list">
-            <article><span>01</span><h3>文字版式</h3><p>保留纸张尺寸、页边距和明确分页边界，支持流式阅读与分页预览。</p></article>
-            <article><span>02</span><h3>工作表视图</h3><p>普通视图使用工作表标签和滚动区域，打印分页时才显示页面导航。</p></article>
-            <article><span>03</span><h3>幻灯片舞台</h3><p>居中展示演示页面，缩略图与页面状态跟随当前幻灯片。</p></article>
+          <div class="format-table" role="table" aria-label="格式支持矩阵">
+            <article role="row"><span>01</span><div><h3>WPS / WPT</h3><p>文字文档与模板，提供流式阅读、分页边界、纸张尺寸和页边距视图。</p></div><strong>文字</strong></article>
+            <article role="row"><span>02</span><div><h3>ET / ETT</h3><p>工作簿与模板，提供工作表标签、单元格样式、合并区域和大表滚动。</p></div><strong>表格</strong></article>
+            <article role="row"><span>03</span><div><h3>DPS / DPT</h3><p>演示文稿与模板，提供居中舞台、真实缩略图和当前幻灯片导航。</p></div><strong>演示</strong></article>
           </div>
         </div>
       </section>
 
-      <section id="integration" class="product-section integration-band" aria-labelledby="integrationTitle">
-        <div class="product-inner integration-layout">
+      <section id="capabilities" class="section capabilities-section" aria-labelledby="capabilitiesTitle">
+        <div class="section-inner capability-layout">
+          <div class="section-heading capability-heading">
+            <p class="eyebrow">PRODUCTION VIEWER</p>
+            <h2 id="capabilitiesTitle">为业务系统设计的专业预览工作区。</h2>
+            <p>查看体验根据文档类型切换，不把分页导航、缩略图或打印视图错误地套用到所有格式。</p>
+          </div>
+          <ol class="capability-list">
+            <li><span>01</span><div><h3>类型感知界面</h3><p>文字、表格和演示分别使用适合其工作方式的工具栏、导航与状态信息。</p></div></li>
+            <li><span>02</span><div><h3>文件留在当前环境</h3><p>支持同源文件接口、签名下载地址和企业内网部署，不依赖云端格式转换。</p></div></li>
+            <li><span>03</span><div><h3>清晰的运行边界</h3><p>开放接入层和示例，核心解析、版式引擎与授权运行时按商业版本交付。</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="integration" class="section integration-section" aria-labelledby="integrationTitle">
+        <div class="section-inner integration-layout">
           <div class="integration-copy">
-            <p class="product-kicker">低耦合接入</p>
-            <h2 id="integrationTitle">保留现有权限、文件系统和审计链路。</h2>
-            <p>业务系统只需提供同源文件地址和文件名。登录、权限、分享、下载与非 WPS 文件预览无需迁移。</p>
-            <div class="integration-links">
-              <a href="https://github.com/flyfish-dev/wps-viewer-integration" target="_blank" rel="noreferrer">接入 SDK ↗</a>
-              <a href="https://github.com/flyfish-dev/wps-viewer-js/releases" target="_blank" rel="noreferrer">评估产物 ↗</a>
+            <p class="eyebrow">LOW COUPLING</p>
+            <h2 id="integrationTitle">保留现有文件平台，只替换 Office 预览层。</h2>
+            <p>业务系统继续负责登录、权限、文件列表、分享、下载和审计。Viewer 只接收同源文件地址、文件名和类型。</p>
+            <div class="text-links">
+              <a href="https://github.com/flyfish-dev/wps-viewer-integration" target="_blank" rel="noreferrer">查看接入 SDK</a>
+              <a href="https://github.com/flyfish-dev/wps-viewer-js/releases" target="_blank" rel="noreferrer">下载评估产物</a>
             </div>
           </div>
-          <div class="code-window" aria-label="WPS Viewer 接入示例">
-            <div class="code-window-bar"><span>viewer.html</span><span>HTML</span></div>
+          <div class="code-panel" aria-label="WPS Viewer 接入示例">
+            <div class="code-panel-bar"><span>preview.html</span><span>HTML</span></div>
             <pre><code>&lt;flyfish-wps-viewer
-  viewer-url="/wps-viewer/viewer"
+  viewer-url="/wps-viewer/demo"
   src="/api/files/42/download"
   name="quarterly-report.et"&gt;
 &lt;/flyfish-wps-viewer&gt;</code></pre>
@@ -163,28 +112,28 @@
         </div>
       </section>
 
-      <section id="licensing" class="product-section licensing-section" aria-labelledby="licensingTitle">
-        <div class="product-inner">
-          <div class="product-heading licensing-heading">
-            <p class="product-kicker">清晰的商业边界</p>
-            <h2 id="licensingTitle">从真实文件评估，到自托管生产部署。</h2>
-            <p>开放 Web Component、TypeScript API 和框架示例；格式解析、版式引擎、授权校验与私有语料通过受控商业运行时交付。</p>
+      <section id="licensing" class="section licensing-section" aria-labelledby="licensingTitle">
+        <div class="section-inner">
+          <div class="section-heading licensing-heading">
+            <p class="eyebrow">COMMERCIAL DELIVERY</p>
+            <h2 id="licensingTitle">从在线评估，到可控的生产部署。</h2>
+            <p>先使用真实文件确认兼容性，再按部署范围选择商业版本。交付边界、授权 Origin 与维护范围保持明确。</p>
           </div>
-          <div class="license-matrix" role="table" aria-label="WPS Viewer 授权版本">
-            <div class="license-column" role="row"><div><strong>评估版</strong><span>免费</span></div><p>在线 Demo、公开接入 SDK、受限域名构建产物。</p><a href="#appShell">打开 Demo</a></div>
-            <div class="license-column license-column-featured" role="row"><div><strong>商业版</strong><span>¥999</span></div><p>单一生产 Origin、自托管运行时、签名许可证与首年维护。</p><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">购买商业授权 ↗</a></div>
-            <div class="license-column" role="row"><div><strong>企业版</strong><span>¥2,999</span></div><p>最多五个授权部署、企业内网交付与优先兼容支持。</p><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">查看企业授权 ↗</a></div>
+          <div class="license-grid">
+            <article><header><h3>评估版</h3><strong>免费</strong></header><p>在线 Demo、公开接入 SDK、受限域名构建产物。</p><a href="/demo">打开 Demo</a></article>
+            <article class="license-featured"><header><h3>商业版</h3><strong>¥999</strong></header><p>单一生产 Origin、自托管运行时、签名许可证与首年维护。</p><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">购买商业授权</a></article>
+            <article><header><h3>企业版</h3><strong>¥2,999</strong></header><p>最多五个授权部署、企业内网交付与优先兼容支持。</p><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">查看企业授权</a></article>
           </div>
           <p class="scope-note">兼容性以购买时支持矩阵、交付版本和客户样例验收为准。部分私有、加密或历史二进制变体可能需要专项适配。</p>
         </div>
       </section>
+    </main>
 
-      <footer class="product-footer">
-        <div class="product-inner product-footer-layout">
-          <div><strong>Flyfish WPS Viewer</strong><p>面向 WPS、ET、DPS 的纯前端文档预览组件。</p></div>
-          <nav aria-label="产品资源"><a href="#appShell">Demo</a><a href="https://github.com/flyfish-dev/wps-viewer-integration" target="_blank" rel="noreferrer">SDK</a><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">飞鱼小铺</a></nav>
-        </div>
-      </footer>
-    </div>
+    <footer class="site-footer">
+      <div class="section-inner footer-layout">
+        <div><strong>Flyfish WPS Viewer</strong><p>面向 WPS、ET、DPS 的纯前端文档预览组件。</p></div>
+        <nav aria-label="产品资源"><a href="/demo">Demo</a><a href="https://github.com/flyfish-dev/wps-viewer-integration" target="_blank" rel="noreferrer">SDK</a><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">飞鱼小铺</a></nav>
+      </div>
+    </footer>
   </body>
 </html>

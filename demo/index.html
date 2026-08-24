@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>在线 Demo | Flyfish WPS Viewer</title>
+    <meta name="description" content="使用真实 WPS、ET、DPS 文件体验 Flyfish WPS Viewer 纯前端文档预览。" />
+    <link rel="canonical" href="https://wps.file-viewer.app/demo" />
+    <script type="module" crossorigin src="/assets/demo-RL5wwTFE.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="stylesheet" crossorigin href="/assets/demo-Da7i9yU-.css">
+  </head>
+  <body>
+    <main id="appShell" class="app-shell" data-view-mode="flow" data-sidebar-open="true" data-page-navigation="hidden">
+      <header class="app-header">
+        <a class="brand" href="/" aria-label="返回 Flyfish WPS Viewer 产品首页">
+          <span class="brand-mark" aria-hidden="true">W</span>
+          <strong>WPS 文档预览</strong>
+        </a>
+        <label class="open-file-button">
+          <input id="fileInput" type="file" accept=".wps,.wpt,.et,.ett,.dps,.dpt" />
+          <span>打开文件</span>
+        </label>
+        <div class="document-identity">
+          <h1 id="fileTitle">WPS 预览</h1>
+          <p id="fileMeta">等待文件</p>
+        </div>
+        <a class="app-product-link" href="/" target="_top">产品主页</a>
+        <div id="licenseValue" class="license-state" title="正在验证 Office Preview 授权">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>验证中</span>
+        </div>
+      </header>
+
+      <nav class="viewer-toolbar" aria-label="文档视图工具栏">
+        <button id="sidebarToggle" class="icon-tool" type="button" title="显示或隐藏侧栏" aria-label="显示或隐藏侧栏" aria-pressed="true" hidden>☰</button>
+        <span class="toolbar-separator" data-sidebar-separator aria-hidden="true" hidden></span>
+        <div class="segmented-control" role="group" aria-label="预览视图">
+          <button id="flowViewButton" type="button" data-view="flow" aria-pressed="true">流式</button>
+          <button id="pagedViewButton" type="button" data-view="paged" aria-pressed="false">分页</button>
+        </div>
+        <span class="toolbar-separator" aria-hidden="true"></span>
+        <div class="zoom-control" role="group" aria-label="缩放">
+          <button id="zoomOutButton" class="icon-tool" type="button" title="缩小" aria-label="缩小">−</button>
+          <output id="zoomValue" aria-live="polite">100%</output>
+          <button id="zoomInButton" class="icon-tool" type="button" title="放大" aria-label="放大">＋</button>
+        </div>
+        <button id="fitWidthButton" class="toolbar-command" type="button" title="按可用宽度缩放">适合宽度</button>
+        <div class="toolbar-spacer"></div>
+        <div class="page-navigation" role="group" aria-label="页面导航" hidden>
+          <button id="previousPageButton" class="icon-tool" type="button" title="上一页" aria-label="上一页">‹</button>
+          <span id="pageIndicator">1 / 1</span>
+          <button id="nextPageButton" class="icon-tool" type="button" title="下一页" aria-label="下一页">›</button>
+        </div>
+      </nav>
+
+      <div class="viewer-body">
+        <aside class="document-panel" aria-label="文档导航" hidden>
+          <div class="panel-tabs" role="tablist" aria-label="侧栏视图">
+            <button id="pagesTab" type="button" role="tab" aria-selected="true" aria-controls="pagesPanel">页面</button>
+            <button id="infoTab" type="button" role="tab" aria-selected="false" aria-controls="infoPanel">信息</button>
+          </div>
+          <section id="pagesPanel" class="panel-content pages-panel" role="tabpanel" aria-labelledby="pagesTab">
+            <ol id="pageList" class="page-list" aria-label="页面列表"></ol>
+          </section>
+          <section id="infoPanel" class="panel-content info-panel" role="tabpanel" aria-labelledby="infoTab" hidden>
+            <label class="field-label" for="sampleSelect">测试样例</label>
+            <select id="sampleSelect">
+              <option value="" disabled>选择样例</option>
+              <option value="legacy">WPS 2001 文档</option>
+              <option value="zip">WPS ZIP 文档</option>
+              <option value="et">ET 表格</option>
+              <option value="dps">DPS 演示</option>
+              <option value="uof">UOF 文档</option>
+              <option value="rtf">RTF 文档</option>
+              <option value="html">HTML 文档</option>
+              <option value="mhtml">MHTML 文档</option>
+            </select>
+            <dl class="facts">
+              <div><dt>容器</dt><dd id="containerValue">-</dd></div>
+              <div><dt>引擎</dt><dd id="engineValue">-</dd></div>
+              <div><dt>保真</dt><dd id="fidelityValue">-</dd></div>
+              <div><dt>纸张</dt><dd id="pageSizeValue">-</dd></div>
+              <div><dt>提示</dt><dd id="warningValue">0</dd></div>
+            </dl>
+          </section>
+        </aside>
+
+        <section class="document-stage" aria-label="文档预览区">
+          <div id="horizontalRuler" class="horizontal-ruler" aria-hidden="true"></div>
+          <div id="workspaceScroll" class="workspace-scroll">
+            <section id="preview" class="preview" aria-live="polite"></section>
+          </div>
+        </section>
+      </div>
+
+      <footer class="statusbar">
+        <span id="statusMessage">就绪</span>
+        <span class="statusbar-spacer"></span>
+        <span id="pageStatus" hidden>第 1 页，共 1 页</span>
+        <span id="paperStatus" hidden>纸张 -</span>
+        <span id="viewStatus">流式视图</span>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -5,7 +5,11 @@ Production browser artifacts for evaluating Flyfish WPS Viewer at
 ET/ETT, and DPS/DPT files locally in the browser without sending the document
 to a conversion service.
 
-[中文说明](README.zh-CN.md) · [Open integration SDK](https://github.com/flyfish-dev/wps-viewer-integration) · [Commercial licensing](https://dev.flyfish.group/shop/detail/1016)
+The product homepage and viewer are separate entry points. The homepage embeds
+the independently maintained viewer from [`/demo`](https://wps.file-viewer.app/demo)
+through a same-origin iframe.
+
+[中文说明](README.zh-CN.md) · [Open integration SDK](https://github.com/flyfish-dev/wps-viewer-integration) · [Commercial licensing](https://dev.flyfish.group/shop/item/1016)
 
 ## Scope
 
