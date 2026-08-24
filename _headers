@@ -1,0 +1,18 @@
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/wasm/*
+  Content-Type: application/wasm
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/office-preview-license.json
+  Cache-Control: no-store
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self' https://file-viewer.app https://*.file-viewer.app

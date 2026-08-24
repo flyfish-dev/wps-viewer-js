@@ -1,0 +1,9 @@
+{
+  "format": "office-preview-license-v2",
+  "license": "eyJhbGxvd2VkT3JpZ2lucyI6WyJodHRwczovL3dwcy5maWxlLXZpZXdlci5hcHAiXSwiY29tbWVyY2lhbFVzZSI6dHJ1ZSwiZGVwbG95bWVudE1vZGUiOiJzcGVjaWZpYyIsImVkaXRpb24iOiJjb21tZXJjaWFsIiwiZmVhdHVyZXMiOlsiZG9jIiwiZG9jeCIsInBwdCIsInBwdHgiLCJ4bHMiLCJ4bHN4IiwieGxzYiIsInZpcnR1YWwtZXhjZWwiXSwiaG9sZGVyIjoiRmx5ZmlzaCBXUFMgVmlld2VyIiwiaXNzdWVkQXQiOiIyMDI2LTA4LTEzVDAxOjA4OjEyLjAwMFoiLCJsaWNlbnNlSWQiOiJPUC1XUFMtRklMRS1WSUVXRVItQVBQLVBFUlBFVFVBTCIsImxpY2Vuc2VLaW5kIjoicnVudGltZS1saWNlbnNlIiwibGljZW5zZU5hbWUiOiJXUFMgRmlsZSBWaWV3ZXIgUHJvZHVjdGlvbiBSdW50aW1lIExpY2Vuc2UiLCJtYXhEZXBsb3ltZW50cyI6MSwibm90QmVmb3JlIjoiMjAyNi0wOC0xM1QwMTowODoxMi4wMDBaIiwicHJvZHVjdCI6Im9mZmljZS1wcmV2aWV3Iiwic2NvcGUiOiJzaW5nbGUtZGVwbG95bWVudDpodHRwczovL3dwcy5maWxlLXZpZXdlci5hcHAiLCJ2ZXJzaW9uIjoyfQ",
+  "seal": {
+    "alg": "WASM-HS256-v1",
+    "kid": "office-preview-wasm-seal-2026-06",
+    "value": "TCHlRn2WykXCAwVKiEoxa88XcCVOlPc2dHx5o6YNHHw"
+  }
+}

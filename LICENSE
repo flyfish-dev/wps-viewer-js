@@ -1,0 +1,18 @@
+Flyfish WPS Viewer Evaluation Artifact License
+
+Copyright (c) 2026 Flyfish
+
+Permission is granted to download and evaluate these compiled artifacts only
+at the licensed evaluation Origin identified by the bundled signed license.
+
+No permission is granted to deploy the artifacts at another Origin, use them
+in production, remove or bypass technical protection measures, reverse
+engineer protected implementation details, redistribute a modified runtime,
+or represent this package as open-source software.
+
+The open integration SDK is licensed separately under the MIT License. A
+commercial agreement and a matched signed runtime license are required for
+self-hosted production use.
+
+THE ARTIFACTS ARE PROVIDED FOR EVALUATION "AS IS", WITHOUT WARRANTY OF ANY
+KIND, EXPRESS OR IMPLIED, TO THE MAXIMUM EXTENT PERMITTED BY LAW.
