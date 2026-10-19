@@ -8,6 +8,15 @@
 
 [公开接入 SDK](https://github.com/flyfish-dev/wps-viewer-integration) · [商业授权](https://dev.flyfish.group/shop/item/1016)
 
+## 当前版本
+
+**0.4.4 / 2026-10-19**：主页和独立 Demo 同步最新文字、表格与演示渲染组件，
+包括字体行框、定位表格、大表滚动、内嵌图片和演示还原改进。
+DOCX Worker 地址随构建内容更新，避免页面更新后仍加载缓存中的旧引擎。
+
+两个 HTML 入口均通过 `application-version` 元信息标识版本。
+校验值对应实际部署的浏览器产物。
+
 仓库只包含压缩后的浏览器脚本、Worker、优化后的 WASM 授权模块、仅允许正式体验域名的许可证和完整性校验值。
 解析与版式源码、签名材料、私有测试文档及客户许可证均不在本仓库中。
 

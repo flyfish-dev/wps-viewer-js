@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon-DpVbt-yp.svg" />
     <title>在线 Demo | Flyfish WPS Viewer</title>
     <meta name="description" content="使用真实 WPS、ET、DPS 文件体验 Flyfish WPS Viewer 纯前端文档预览。" />
     <link rel="canonical" href="https://wps.file-viewer.app/demo" />
-    <script type="module" crossorigin src="/assets/demo-RL5wwTFE.js"></script>
+    <script type="module" crossorigin src="/assets/demo-BSuTokrE.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
-    <link rel="stylesheet" crossorigin href="/assets/demo-Da7i9yU-.css">
+    <link rel="stylesheet" crossorigin href="/assets/demo-2UjHh2Rs.css">
+    <meta name="application-version" content="0.4.4">
   </head>
   <body>
     <main id="appShell" class="app-shell" data-view-mode="flow" data-sidebar-open="true" data-page-navigation="hidden">
@@ -36,7 +38,7 @@
       <nav class="viewer-toolbar" aria-label="文档视图工具栏">
         <button id="sidebarToggle" class="icon-tool" type="button" title="显示或隐藏侧栏" aria-label="显示或隐藏侧栏" aria-pressed="true" hidden>☰</button>
         <span class="toolbar-separator" data-sidebar-separator aria-hidden="true" hidden></span>
-        <div class="segmented-control" role="group" aria-label="预览视图">
+        <div id="viewModeControl" class="segmented-control" role="group" aria-label="预览视图" hidden>
           <button id="flowViewButton" type="button" data-view="flow" aria-pressed="true">流式</button>
           <button id="pagedViewButton" type="button" data-view="paged" aria-pressed="false">分页</button>
         </div>

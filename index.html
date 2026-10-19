@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon-DpVbt-yp.svg" />
     <title>Flyfish WPS Viewer | WPS、ET、DPS 纯前端文档预览</title>
     <meta name="description" content="面向企业文件系统的 WPS、ET、DPS 纯前端文档预览组件，支持自托管部署、开放接入与商业授权。" />
     <link rel="canonical" href="https://wps.file-viewer.app/" />
-    <script type="module" crossorigin src="/assets/home-DVxCkYYa.js"></script>
+    <script type="module" crossorigin src="/assets/home-DN9BZP0b.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
-    <link rel="stylesheet" crossorigin href="/assets/home-l05fAWZT.css">
+    <link rel="stylesheet" crossorigin href="/assets/home-RUzzU3er.css">
+    <meta name="application-version" content="0.4.4">
   </head>
   <body>
     <header class="site-header">
@@ -19,6 +21,7 @@
           <span>Flyfish WPS Viewer</span>
         </a>
         <nav class="site-nav" aria-label="产品导航">
+          <a href="#updates">更新</a>
           <a href="#formats">格式</a>
           <a href="#capabilities">能力</a>
           <a href="#integration">接入</a>
@@ -34,7 +37,7 @@
           <div class="hero-copy">
             <p class="eyebrow">WPS OFFICE PREVIEW</p>
             <h1 id="heroTitle">Flyfish WPS Viewer</h1>
-            <p class="hero-lead">让 WPS 文字、ET 表格与 DPS 演示文件直接在浏览器中打开。保留现有权限、文件存储和业务流程，文件无需上传到第三方转换服务。</p>
+            <p class="hero-lead">在浏览器中预览 WPS 文字、ET 表格与 DPS 演示。持续改进文字版式、图形定位与大文件阅读，保留现有权限与文件存储，无需云端格式转换。</p>
             <div class="hero-actions">
               <a class="button button-primary" href="/demo">使用真实文件体验</a>
               <a class="button button-secondary" href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">商业授权</a>
@@ -46,6 +49,7 @@
             </dl>
           </div>
 
+          <p class="release-line"><span>v0.4.4</span><time datetime="2026-10-19">2026.10.19</time><a href="#updates">查看本次更新</a></p>
           <div class="demo-embed" data-demo-embed>
             <div class="demo-embed-bar">
               <div class="demo-embed-title">
@@ -60,6 +64,22 @@
         </div>
       </section>
 
+      <section id="updates" class="section updates-section" aria-labelledby="updatesTitle">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">RELEASE / v0.4.4</p>
+            <h2 id="updatesTitle">版式与性能，同步更新。</h2>
+            <p>本次发布同步最新 Office 渲染组件，改进 WPS 家族文件的对应预览链路。</p>
+          </div>
+          <div class="release-grid">
+            <article><h3>文字与分页</h3><p>改进原始字体行框、连续分节与定位表格；保留可见页优先显示、后台字体校准和分页计算复用。</p></article>
+            <article><h3>表格与图片</h3><p>保留大表虚拟滚动与单元格样式，新增旧格式内嵌 PNG/JPEG 图片的原始行列锚点定位。</p></article>
+            <article><h3>演示与稳定性</h3><p>同步母版文字、合并表格、图形和公式改进；完善缩放任务与资源释放，更新文档清洗依赖。</p></article>
+          </div>
+          <p class="scope-note">按文件实际容器选择引擎。具体还原效果受文件结构与字体环境影响，不承诺所有私有变体逐像素一致。</p>
+        </div>
+      </section>
+
       <section id="formats" class="section formats-section" aria-labelledby="formatsTitle">
         <div class="section-inner">
           <div class="section-heading">
@@ -68,7 +88,7 @@
             <p>扩展名不是解析依据。运行时会先检测 ZIP、CFB、WPS 2001、UOF、RTF、HTML 等真实容器，再选择对应渲染链路。</p>
           </div>
           <div class="format-table" role="table" aria-label="格式支持矩阵">
-            <article role="row"><span>01</span><div><h3>WPS / WPT</h3><p>文字文档与模板，提供流式阅读、分页边界、纸张尺寸和页边距视图。</p></div><strong>文字</strong></article>
+            <article role="row"><span>01</span><div><h3>WPS / WPT</h3><p>文字文档与模板，保留纸张、页边距、分栏、表格与文本框；根据文件能力提供流式或分页阅读。</p></div><strong>文字</strong></article>
             <article role="row"><span>02</span><div><h3>ET / ETT</h3><p>工作簿与模板，提供工作表标签、单元格样式、合并区域和大表滚动。</p></div><strong>表格</strong></article>
             <article role="row"><span>03</span><div><h3>DPS / DPT</h3><p>演示文稿与模板，提供居中舞台、真实缩略图和当前幻灯片导航。</p></div><strong>演示</strong></article>
           </div>
@@ -121,17 +141,17 @@
           </div>
           <div class="license-grid">
             <article><header><h3>评估版</h3><strong>免费</strong></header><p>在线 Demo、公开接入 SDK、受限域名构建产物。</p><a href="/demo">打开 Demo</a></article>
-            <article class="license-featured"><header><h3>商业版</h3><strong>¥999</strong></header><p>单一生产 Origin、自托管运行时、签名许可证与首年维护。</p><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">购买商业授权</a></article>
-            <article><header><h3>企业版</h3><strong>¥2,999</strong></header><p>最多五个授权部署、企业内网交付与优先兼容支持。</p><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">查看企业授权</a></article>
+            <article class="license-featured"><header><h3>商业版</h3><strong>自托管</strong></header><p>按授权域名部署，交付运行时、签名许可证与约定的更新维护服务。</p><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">查看价格与授权</a></article>
+            <article><header><h3>企业版</h3><strong>按需交付</strong></header><p>企业内网、多项目部署与兼容性支持，部署数量和服务范围按合同确认。</p><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">查看企业授权</a></article>
           </div>
-          <p class="scope-note">兼容性以购买时支持矩阵、交付版本和客户样例验收为准。部分私有、加密或历史二进制变体可能需要专项适配。</p>
+          <p class="scope-note">价格与授权范围以商品页和交付合同为准。兼容性以交付版本和真实样例验收为准；部分私有、加密或历史变体需要专项适配。默认字体服务需要联网，离线部署需准备具有使用权的字体。</p>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="section-inner footer-layout">
-        <div><strong>Flyfish WPS Viewer</strong><p>面向 WPS、ET、DPS 的纯前端文档预览组件。</p></div>
+        <div><strong>Flyfish WPS Viewer</strong><p>v0.4.4 · 面向 WPS、ET、DPS 的纯前端文档预览组件。</p></div>
         <nav aria-label="产品资源"><a href="/demo">Demo</a><a href="https://github.com/flyfish-dev/wps-viewer-integration" target="_blank" rel="noreferrer">SDK</a><a href="https://dev.flyfish.group/shop/item/1016" target="_blank" rel="noreferrer">飞鱼小铺</a></nav>
       </div>
     </footer>

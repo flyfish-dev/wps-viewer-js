@@ -1,3 +1,18 @@
+/
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+
+/demo
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+
+/demo/
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+
+/demo/index.html
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
@@ -9,10 +24,10 @@
   Cache-Control: no-store
 
 /*
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: no-referrer
-  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data: https://font.flyfish.group https://font-gateway.wybaby168.workers.dev; worker-src 'self' blob:; connect-src 'self' https://font.flyfish.group https://font-gateway.wybaby168.workers.dev; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self' https://file-viewer.app https://*.file-viewer.app
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; worker-src 'self' blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self' https://file-viewer.app https://*.file-viewer.app
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Referrer-Policy: no-referrer
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff

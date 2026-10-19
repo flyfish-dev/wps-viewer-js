@@ -11,6 +11,17 @@ through a same-origin iframe.
 
 [中文说明](README.zh-CN.md) · [Open integration SDK](https://github.com/flyfish-dev/wps-viewer-integration) · [Commercial licensing](https://dev.flyfish.group/shop/item/1016)
 
+## Current Release
+
+Version **0.4.4**, released on **2026-10-19**, updates both the product homepage
+and the independent demo with the latest shared document, spreadsheet, and
+presentation engines. This includes font line-box and positioned-table layout,
+large-sheet scrolling and embedded images, presentation rendering improvements,
+and a versioned DOCX Worker URL to prevent stale engine caches.
+
+Both HTML entry points identify the release through the `application-version`
+meta tag. The checksums below cover the exact deployed browser payload.
+
 ## Scope
 
 This repository contains minified browser bundles, Workers, an optimized WASM
