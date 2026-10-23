@@ -8,9 +8,10 @@
     <title>Flyfish WPS Viewer | WPS、ET、DPS 纯前端文档预览</title>
     <meta name="description" content="面向企业文件系统的 WPS、ET、DPS 纯前端文档预览组件，支持自托管部署、开放接入与商业授权。" />
     <link rel="canonical" href="https://wps.file-viewer.app/" />
-    <script type="module" crossorigin src="/assets/home-C-N4dTFD.js"></script>
+    <script type="module" crossorigin src="/assets/home-j2OqlZ4K.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
     <link rel="stylesheet" crossorigin href="/assets/home-BpyCMpY8.css">
-    <meta name="application-version" content="0.4.4">
+    <meta name="application-version" content="0.4.5">
   </head>
   <body>
     <header class="site-header">
@@ -48,7 +49,7 @@
             </dl>
           </div>
 
-          <p class="release-line"><span>v0.4.4</span><time datetime="2026-10-19">2026.10.19</time><a href="#updates">查看本次更新</a></p>
+          <p class="release-line"><span>v0.4.5</span><time datetime="2026-10-23">2026.10.23</time><a href="#updates">查看本次更新</a></p>
           <div class="demo-embed" data-demo-embed>
             <div class="demo-embed-bar">
               <div class="demo-embed-title">
@@ -66,14 +67,14 @@
       <section id="updates" class="section updates-section" aria-labelledby="updatesTitle">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="eyebrow">RELEASE / v0.4.4</p>
+            <p class="eyebrow">RELEASE / v0.4.5</p>
             <h2 id="updatesTitle">版式与性能，同步更新。</h2>
             <p>本次发布同步最新 Office 渲染组件，改进 WPS 家族文件的对应预览链路。</p>
           </div>
           <div class="release-grid">
-            <article><h3>文字与分页</h3><p>改进原始字体行框、连续分节与定位表格；保留可见页优先显示、后台字体校准和分页计算复用。</p></article>
-            <article><h3>表格与图片</h3><p>保留大表虚拟滚动与单元格样式，新增旧格式内嵌 PNG/JPEG 图片的原始行列锚点定位。</p></article>
-            <article><h3>演示与稳定性</h3><p>同步母版文字、合并表格、图形和公式改进；完善缩放任务与资源释放，更新文档清洗依赖。</p></article>
+            <article><h3>文字与分页</h3><p>减少旧版文字文档的重复渲染，协作挂载与后台字体校准并行；现代文字文档按需读取原始文件，优先显示可见页。</p></article>
+            <article><h3>表格与图片</h3><p>兼容表格接入独立 Worker 与窗口化数据加载，大表只渲染视口附近的单元格，保留图片锚点与单元格样式。</p></article>
+            <article><h3>演示与稳定性</h3><p>现代演示按需加载幻灯片，使用独立导航和有界缩略图缓存；切换文件及时取消旧任务、释放资源。</p></article>
           </div>
           <p class="scope-note">按文件实际容器选择引擎。具体还原效果受文件结构与字体环境影响，不承诺所有私有变体逐像素一致。</p>
         </div>
@@ -151,7 +152,7 @@
 
     <footer class="site-footer">
       <div class="section-inner footer-layout">
-        <div><strong>Flyfish WPS Viewer</strong><p>v0.4.4 · 面向 WPS、ET、DPS 的纯前端文档预览组件。</p></div>
+        <div><strong>Flyfish WPS Viewer</strong><p>v0.4.5 · 面向 WPS、ET、DPS 的纯前端文档预览组件。</p></div>
         <nav aria-label="产品资源"><a href="/demo">Demo</a><a href="https://github.com/flyfish-dev/wps-viewer-integration" target="_blank" rel="noreferrer">SDK</a><a href="https://dev.flyfish.group/shop/detail/1016" target="_blank" rel="noreferrer">飞鱼小铺</a></nav>
       </div>
     </footer>

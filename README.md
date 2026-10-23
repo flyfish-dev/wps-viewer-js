@@ -13,11 +13,18 @@ through a same-origin iframe.
 
 ## Current Release
 
-Version **0.4.4**, released on **2026-10-19**, updates both the product homepage
-and the independent demo with the latest shared document, spreadsheet, and
-presentation engines. This includes font line-box and positioned-table layout,
-large-sheet scrolling and embedded images, presentation rendering improvements,
-and a versioned DOCX Worker URL to prevent stale engine caches.
+Version **0.4.5**, released on **2026-10-23**, integrates the latest committed
+Office components into the WPS preview routes. DOC avoids duplicate rendering
+and uses cooperative layout with batched background-font reconciliation. Modern
+Word packages retain their original File for Worker/canvas rendering. Compatible
+spreadsheets use a Worker and windowed virtual scrolling; modern presentations
+load slides on demand with bounded thumbnails and their own navigation.
+
+Spreadsheet and modern-presentation engines load lazily. The main demo bundle
+is approximately 32% smaller when gzipped than in 0.4.4. File replacement cancels
+old work, and hidden candidate pages no longer inflate the navigation count.
+Both desktop and mobile preview surfaces were verified. These are performance
+and lifecycle improvements, not a promise of universal native-layout parity.
 
 Both HTML entry points identify the release through the `application-version`
 meta tag. The checksums below cover the exact deployed browser payload.
