@@ -9,7 +9,7 @@ The product homepage and viewer are separate entry points. The homepage embeds
 the independently maintained viewer from [`/demo`](https://wps.file-viewer.app/demo)
 through a same-origin iframe.
 
-[中文说明](README.zh-CN.md) · [Open integration SDK](https://github.com/flyfish-dev/wps-viewer-integration) · [Commercial licensing](https://dev.flyfish.group/shop/item/1016)
+[中文说明](README.zh-CN.md) · [Open integration SDK](https://github.com/flyfish-dev/wps-viewer-integration) · [Commercial licensing](https://dev.flyfish.group/shop/detail/1016)
 
 ## Current Release
 
@@ -21,6 +21,15 @@ and a versioned DOCX Worker URL to prevent stale engine caches.
 
 Both HTML entry points identify the release through the `application-version`
 meta tag. The checksums below cover the exact deployed browser payload.
+
+## Licensing Update
+
+The **Flagship edition is CNY 5,999** with unlimited domains, projects and
+deployments, a perpetual commercial runtime license and first-year maintenance.
+[Choose Flagship in the Flyfish shop](https://dev.flyfish.group/shop/detail/1016?sku=56).
+
+The Commercial and Enterprise editions remain available. The evaluation
+license in this repository retains its existing domain restrictions.
 
 ## Scope
 

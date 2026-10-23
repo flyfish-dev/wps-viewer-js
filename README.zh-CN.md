@@ -6,7 +6,7 @@
 产品首页与预览器使用独立入口。首页通过同源 iframe 嵌入单独维护的
 [`/demo`](https://wps.file-viewer.app/demo) 预览页。
 
-[公开接入 SDK](https://github.com/flyfish-dev/wps-viewer-integration) · [商业授权](https://dev.flyfish.group/shop/item/1016)
+[公开接入 SDK](https://github.com/flyfish-dev/wps-viewer-integration) · [商业授权](https://dev.flyfish.group/shop/detail/1016)
 
 ## 当前版本
 
@@ -16,6 +16,12 @@ DOCX Worker 地址随构建内容更新，避免页面更新后仍加载缓存�
 
 两个 HTML 入口均通过 `application-version` 元信息标识版本。
 校验值对应实际部署的浏览器产物。
+
+## 授权版本更新
+
+新增[旗舰版](https://dev.flyfish.group/shop/detail/1016?sku=56)，定价 **¥5,999**，
+不限域名、项目和部署数量，提供永久商用运行授权与首年更新维护。
+商业版和企业版继续提供；本仓库的评估许可证保持原有域名限制。
 
 仓库只包含压缩后的浏览器脚本、Worker、优化后的 WASM 授权模块、仅允许正式体验域名的许可证和完整性校验值。
 解析与版式源码、签名材料、私有测试文档及客户许可证均不在本仓库中。
